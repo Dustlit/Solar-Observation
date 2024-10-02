@@ -12,6 +12,13 @@ body {
     color: #333333; /* General text color */
     line-height: 1.6;
 }
+@font-face {
+    font-family: 'Burtons'; /* Name you want to use in your CSS */
+    src: url('fonts/Burtons.otf') format('opentype'); /* Path to your font file */
+    font-weight: normal; /* Adjust according to your font weight */
+    font-style: normal;  /* Adjust according to your font style */
+}
+
 
 header {
     background-color: #FF5C00; /* Orange color from the logo */
