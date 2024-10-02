@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dustlit - Event Registration</title>
+    <style>
+        /* Base styles */
+        body {
+            font-family: Burtons;
+            background-color: #1a1a1a; /* Dark background for contrast */
+            color: #fff; /* White text for readability */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Header */
+        header {
+            background-color: #ff6600; /* Orange to match the logo */
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header img {
+            width: 200px;
+            height: auto;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        /* Event Banner */
+        .event-banner {
+            background-color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .event-banner h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .event-banner p {
+            font-size: 20px;
+        }
+
+        /* Registration Form */
+        .registration-form {
+            max-width: 600px;
+            margin: 30px auto;
+            background-color: #2b2b2b;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .registration-form h2 {
+            text-align: center;
+            color: #ff6600;
+        }
+
+        .registration-form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        .registration-form input, .registration-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .registration-form button {
+            width: 100%;
+            padding: 15px;
+            background-color: #ff6600;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        /* Payment Button */
+        .upi-payment {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .upi-payment a {
+            padding: 15px 30px;
+            background-color: #ff6600;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+        }
+		
+		/* Thank You Message */
+        .thank-you-message {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #ff6600;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        function updatePayment() {
+            // Get the number of attendees
+            let attendees = document.getElementById('attendees').value;
+            if (!attendees || attendees < 1) {
+                attendees = 1; // Default to 1 if no valid number is entered
+            }
+            
+            // Calculate total amount (₹500 per attendee)
+            let amount = attendees * 500;
+            
+            // Update UPI payment link with the correct amount
+            let upiLink = document.getElementById('upi-link');
+            upiLink.href = `upi://pay?pa=visualsofsai@okhdfcbank&pn=SolarObservatory&cu=INR`;
+            
+            // Display total amount
+            document.getElementById('total-amount').innerText = `Total Amount: ₹${amount}`;
+        }
+
+        // Form submission handler
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.querySelector(".registration-form form");
+            const thankYouMessage = document.getElementById("thank-you-message");
+
+            form.addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent page reload
+
+                // Process form data here (e.g., send it to the server)
+                // For now, just show the thank you message
+                thankYouMessage.style.display = "block";
+
+                // Optionally clear the form
+                form.reset();
+                updatePayment(); // Reset the total amount display
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <img src="logo.png" alt="Dustlit Logo">
+        <nav>
+            <a href="#event-details">Event Details</a>
+            <a href="#register">Register</a>
+            <a href="#payment">Payment</a>
+            <a href="#contact">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Event Banner -->
+    <section class="event-banner">
+        <h1 style="font-family: 'Burtons'; font-size: 60px;">Solar Observation</h1>
+        <p style="font-size: 20px;">with</p>
+        <h1 style="font-family: 'Burtons'; font-size: 30px;">Dedicated Solar Telescope</h1>
+
+        <h2><span style="color: #ff6600;">Join us on October 5th at Devadas Observatory, Guindy Chennai for an unforgettable Solar Observation event.</span></h2>
+        <h2><span style="color: #ff6600;">Experience Our Nearest Star with powerful telescopes and a special visit to the Devadas Observatory.</span></h2>
+
+        <h3><u>Inclusions:</u></h3>
+        <p>Sun Observation & Observatory Visit</p>
+
+        <p><u>Package Details:</u></p>
+        <p>Per Person : ₹500/-</p>
+
+        <p><u>Disclaimer:</u></p>
+        <p>The occurrence of the event relies on weather conditions.</p>
+        <p>If the weather condition is not good, we will reschedule the event.</p>
+        <p>Date: <span style="color: #ff6600;">05th October 2024, 02:00 PM</span></p>
+        <p>Location: <a href="https://maps.app.goo.gl/YZhs7XzFACym1L9n9" target="_blank" style="color: #ff6600;">Devadas Observatory</a></p>
+    </section>
+
+    <!-- Registration Form -->
+    <section id="register" class="registration-form">
+        <h2>Register for the Event</h2>
+        <form action="submit_registration.php" method="POST">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="attendees">Number of Attendees</label>
+            <input type="number" id="attendees" name="attendees" min="1" required oninput="updatePayment()">
+
+            <button type="submit">Submit Registration</button>
+        </form>
+    </section>
+
+    <!-- UPI Payment Section -->
+    <section id="payment" class="upi-payment">
+        <h2>Pay for the Event</h2>
+        <p id="total-amount">Total Amount: ₹500</p>
+        <a id="upi-link" href="upi://pay?pa=visualsofsai@okhdfcbank&pn=SolarObservatory&cu=INR" target="_blank">Pay via UPI</a>
+    </section>
+
+    <!-- Thank You Message -->
+    <div id="thank-you-message" class="thank-you-message">
+        <h3>Thank You for Registering!</h3>
+        <p>Your registration has been successfully received.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>For more details, contact us at: <a href="https://wa.me/9585866980?text=I'm%20Enquiring%20about%20the%20Solar%20Observation%20Event">+91 95858 66980</a> | <a href="https://wa.me/7416930597?text=I'm%20Enquiring%20about%20the%20Solar%20Observation%20Event">+91 74169 30597</a> | Email ID: <a href="https://mail.google.com/mail/u/5/#inbox?compose=DmwnWrRmVXFRCXXkKpmdPDLvJmBQsDKqPmsTnqJNcPqxJqRGGbWZmpjsRJzNZqrxjqjbchRhVGgL">dustlitastronomy@gmail.com</a></p>
+        <p>Follow us on <a href="https://www.instagram.com/dustlit?igsh=MTF4ajk0am8yam95Yg==">Instagram</a> </p>
+    </footer>
+
+</body>
+</html>
