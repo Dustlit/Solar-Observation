@@ -5,18 +5,19 @@
     box-sizing: border-box;
 }
 
-/* Body and main layout */
-body {
-    font-family: 'Burtons', sans-serif; /* Add your preferred font */
-    background-color: #FFFFFF; /* Contrast against the logo's orange */
-    color: #333333; /* General text color */
-    line-height: 1.6;
-}
 @font-face {
     font-family: 'Burtons'; /* Name you want to use in your CSS */
     src: url('fonts/Burtons.otf') format('opentype'); /* Path to your font file */
     font-weight: normal; /* Adjust according to your font weight */
     font-style: normal;  /* Adjust according to your font style */
+}
+
+/* Body and main layout */
+body {
+    font-family: 'Burtons'; /* Add your preferred font */
+    background-color: #FFFFFF; /* Contrast against the logo's orange */
+    color: #333333; /* General text color */
+    line-height: 1.6;
 }
 
 
