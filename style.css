@@ -6,7 +6,7 @@
 }
 
 @font-face {
-    font-family: 'Burtons'; /* Name you want to use in your CSS */
+    font-family: 'burtonsregular'; /* Name you want to use in your CSS */
     src: url('Burtons-webfont.woff') format('woff'); /* Path to your font file */
 	url('Burtons-webfont.woff2') format('woff2');
     font-weight: normal; /* Adjust according to your font weight */
@@ -14,16 +14,17 @@
 }
 
 @font-face {
-    font-family: 'Hughs'; /* Name you want to use in your CSS */
+    font-family: 'hughsregular; /* Name you want to use in your CSS */
     src: url('hughs-webfont.woff') format('woff'); /* Path to your font file */
 	url('hughs-webfont.woff2') format('woff2');
     font-weight: normal; /* Adjust according to your font weight */
     font-style: normal;  /* Adjust according to your font style */
 }
 
+
 /* Body and main layout */
 body {
-    font-family: 'Aerial'; /* Add your preferred font */
+    font-family: 'century_gothicregular'; /* Add your preferred font */
     background-color: #FFFFFF; /* Contrast against the logo's orange */
     color: #333333; /* General text color */
     line-height: 1.6;
